@@ -10,8 +10,6 @@ const NUMBER_ARGUMENT = 'number';
 // [START SillyNameMaker]
 exports.sillyNameMaker = (req, res) => {
   const assistant = new Assistant({request: req, response: res});
-  console.log('Request headers: ' + JSON.stringify(req.headers));
-  console.log('Request body: ' + JSON.stringify(req.body));
 
   // Make a silly name
   function makeName (assistant) {
