@@ -4,7 +4,7 @@
   "description": "Google Assistant agent using node.js that integrates via API.AI.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/eslint/bin/eslint server.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,8 @@
   "homepage": "https://github.com/meandmyrobot/recipe-agent#readme",
   "dependencies": {
     "actions-on-google": "^1.0.9"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0"
   }
 }
