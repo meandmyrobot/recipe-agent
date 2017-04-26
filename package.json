@@ -1,0 +1,23 @@
+{
+  "name": "recipe-agent",
+  "version": "1.0.0",
+  "description": "Google Assistant agent using node.js that integrates via API.AI.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meandmyrobot/recipe-agent.git"
+  },
+  "keywords": [],
+  "author": "Michael Kinkaid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meandmyrobot/recipe-agent/issues"
+  },
+  "homepage": "https://github.com/meandmyrobot/recipe-agent#readme",
+  "dependencies": {
+    "actions-on-google": "^1.0.9"
+  }
+}
