@@ -1,3 +1,8 @@
 language: node_js
 node_js:
   - "node"
+
+deploy:
+  provider: heroku
+  api_key: TRAVIS_HEROKU_API
+  app: TRAVIS_HEROKU_APP_TARGET
