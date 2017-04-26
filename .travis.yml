@@ -1,8 +1,11 @@
 language: node_js
 node_js:
-  - "node"
-
+- node
 deploy:
   provider: heroku
-  api_key: TRAVIS_HEROKU_API
-  app: TRAVIS_HEROKU_APP_TARGET
+  api_key:
+    secure: NVDr8q4YrrzV6+gIdTBvgJXOBK6YQNnHbdAfIayol+MxXBKtZKbVBpaJIv3LUKBtrIFVGT+cqFDjNhKqHaIVfz3RmidnWY1xq4qrRJuOA5mrxQBD/4AmkD51ADOQF6mSdICQyGZd6HJfxcreHA83ooG5ZSXp55yaFUXuTDP5fq3SKuup46dUAvNEYCx07j+S1UKi7NdMl78OyrO9wtC7fKcIQiAPa4kS5Dj+j4/iJCIspcktdB8lR0ROr+3KhvD9h2c5WDOq/drt6qT6wtoIRiRXVt6cCmVjWnWNZl96XBinuuNTNywHW6kToshJWViy2XHbyvpsGMMz8/4+HnIxGXtI4IhOThW7q2L0ZFZUFP8lsEVCYHg0Y/ZtA1/7KdzIkCABIJm6U3lQJCMEdnNI0idj0WbipP35zkaHUPCdqQ8T3FPsBT3xsPBxQbfdHy058CL5qm/t19+a6nHc8Z/89bt+b894Z4aL6uWZGH2KiKFYno3I/rviVvPBpFmyqKqlC8eqdXWuUlvAoGZtMwocvYiekmM9kd0IMmPhqw9xl1SUF96YKQunf58Q+/OCkEtdle7EzOmB6A6eseYh4dPBqk/6NW3Qp/2jAR1MFVGPQikRws9NR8C6ZjkPG0TFtpxdw45/X8wRyDP+JTdFRgOOJDaBE4g+DXXSDHu45cGbYuU=
+  app: recipe-agent
+  on:
+    repo: meandmyrobot/recipe-agent
+    
