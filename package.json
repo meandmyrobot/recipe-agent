@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/meandmyrobot/recipe-agent#readme",
   "dependencies": {
-    "actions-on-google": "^1.0.9"
+    "actions-on-google": "^1.0.9",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2"
   },
   "devDependencies": {
     "eslint": "^3.19.0"

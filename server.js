@@ -1,27 +1,28 @@
 'use strict';
 
-process.env.DEBUG = 'actions-on-google:*';
-const Assistant = require('actions-on-google').ApiAiAssistant;
+let express = require('express');
+let app = express();
+let bodyParser = require('body-parser');
+let Assistant = require('actions-on-google').ApiAiAssistant;
+app.use(bodyParser.json());
 
-const NAME_ACTION = 'make_name';
-const COLOR_ARGUMENT = 'color';
-const NUMBER_ARGUMENT = 'number';
+const devPort = 5000;
 
-// [START SillyNameMaker]
-exports.sillyNameMaker = (req, res) => {
+function recipeAgent (req, res) {
   const assistant = new Assistant({request: req, response: res});
+  assistant.tell('Hello World');
+}
 
-  // Make a silly name
-  function makeName (assistant) {
-    let number = assistant.getArgument(NUMBER_ARGUMENT);
-    let color = assistant.getArgument(COLOR_ARGUMENT);
-    assistant.tell('Alright, your silly name is ' +
-      color + ' ' + number +
-      '! I hope you like it. See you next time.');
-  }
+app.get('/', (req, res) => {
+  res.send('Server is up and running.');
+});
 
-  let actionMap = new Map();
-  actionMap.set(NAME_ACTION, makeName);
+app.post('/api', (req, res) => {
+  recipeAgent(req, res);
+});
 
-  assistant.handleRequest(actionMap);
-};
+let port = process.env.PORT || devPort;
+
+app.listen(port, () => {
+  console.log('Example app listening on port' + port);
+});
