@@ -36,5 +36,6 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
-# Sensitive files
+# Sensitive files & e2e testing
 params.js
+e2e
