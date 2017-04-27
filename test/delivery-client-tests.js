@@ -20,7 +20,7 @@ describe('Constructor', () => {
     });
 });
 
-describe('Live Tests', () => {
+describe('Live Delivery Test', () => {
     it('Can get the information for a content type', (done) => {
         const codeName = 'recipe';
         let client = new DeliveryClient({projectId});

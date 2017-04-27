@@ -4,7 +4,7 @@
   "description": "Google Assistant agent using node.js that integrates via API.AI.",
   "main": "server.js",
   "scripts": {
-    "test": "./node_modules/eslint/bin/eslint.js server.js"
+    "test": "node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",
