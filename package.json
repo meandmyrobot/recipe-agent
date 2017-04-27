@@ -20,9 +20,12 @@
   "dependencies": {
     "actions-on-google": "^1.0.9",
     "body-parser": "^1.17.1",
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "node-fetch": "^1.6.3"
   },
   "devDependencies": {
-    "eslint": "^3.19.0"
+    "chai": "^3.5.0",
+    "eslint": "^3.19.0",
+    "mocha": "^3.3.0"
   }
 }
