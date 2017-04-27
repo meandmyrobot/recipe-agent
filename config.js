@@ -1,4 +1,11 @@
-const params = require('./params');
+let params = null;
+
+try {
+    params = require('./params');
+}
+catch(err) {
+    console.log(err);
+}
 
 // Load params from environment
 let projectId = process.env.KENTICO_CLOUD_PROJECT_ID || params.projectId;
