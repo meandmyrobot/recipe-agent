@@ -1,6 +1,7 @@
 'use strict';
 
 let express = require('express');
+let RecipeAgent = require('./recipe_agent/recipe_agent');
 let app = express();
 let bodyParser = require('body-parser');
 app.use(bodyParser.json());
