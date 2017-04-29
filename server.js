@@ -3,6 +3,7 @@
 let express = require('express');
 let bodyParser = require('body-parser');
 const Assistant = require('actions-on-google').ApiAiAssistant;
+const RecipeAgent = require('./recipe_agent/recipe-agent');
 
 let app = express();
 app.use(bodyParser.json());
@@ -15,18 +16,8 @@ app.get('/', (req, res) => {
 
 app.post('/api', (req, res) => {
         const assistant = new Assistant({request: req, response: res});
-        const intent = assistant.getIntent();
-        let agentResponse = 'huh?';
-
-        switch (intent) {
-            case 'recipe.recommendation':
-                agentResponse = 'Chocolate';
-            break;
-
-            default:
-                agentResponse = 'Sorry, I\'ve no idea what you\'re talking about';
-        }
-
+        const recipeAgent = new RecipeAgent(assistant);
+        agentResponse = recipeAgent.getRecipeResponse();
         assistant.tell(agentResponse);
 });
 

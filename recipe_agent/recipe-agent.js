@@ -1,7 +1,6 @@
 'use strict';
 
-let Assistant = require('actions-on-google').ApiAiAssistant;
-let RecipeRecommendationService = require('./recipe-recommendation-service');
+const RecipeRecommendationService = require('./recipe-recommendation-service');
 
 const RECIPE_RECOMMENDATION_INTENT = 'recipe.recommendation';
 const PROTEIN_ARGUMENT = 'protein';
@@ -11,11 +10,11 @@ const COOKING_SPEED_ARGUMENT = 'cooking-speed';
 const DISH_TYPE_ARGUMENT = 'dish-type';
 
 const RecipeAgent = class {
-    constructor (request, response) {
-        this.assistant = new Assistant({request, response});
+    constructor (assistant) {
+        this.assistant = assistant;
     }
 
-    handleResponse () {
+    getRecipeResponse () {
         let intent = this.assistant.getIntent();
         switch (intent) {
             case RECIPE_RECOMMENDATION_INTENT:
