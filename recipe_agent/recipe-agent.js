@@ -14,30 +14,35 @@ const RecipeAgent = class {
         this.assistant = assistant;
     }
 
-    getRecipeResponse () {
+    getResponseFromIntent () {
         let intent = this.assistant.getIntent();
+        let response = 'Nope';
+
         switch (intent) {
             case RECIPE_RECOMMENDATION_INTENT:
-                this.provideRecipeRecommnedation();
+                response = this.provideRecipeRecommnedation();
             break;
 
             default:
-                this.assistant.tell('Sorry, I\'ve no idea what you\'re talking about');
+                response = 'Sorry, I\'ve no idea what you\'re talking about';
         }
+
+        return response;
     }
 
     provideRecipeRecommnedation () {
         let options = {
-            cookingSpeed: assistant.getArgument(COOKING_SPEED_ARGUMENT),
-            dishType: assistant.getArgument(DISH_TYPE_ARGUMENT),
-            protein: assistant.getArgument(PROTEIN_ARGUMENT),
-            temperature: assistant.getArgument(TEMPERATURE_ARGUMENT),
-            vegetable: assistant.getArgument(VEGETABLE_ARGUMENT)
+            cookingSpeed: this.assistant.getArgument(COOKING_SPEED_ARGUMENT),
+            dishType: this.assistant.getArgument(DISH_TYPE_ARGUMENT),
+            protein: this.assistant.getArgument(PROTEIN_ARGUMENT),
+            temperature: this.assistant.getArgument(TEMPERATURE_ARGUMENT),
+            vegetable: this.assistant.getArgument(VEGETABLE_ARGUMENT)
         };
 
         recipeRecommendationService = new RecipeRecommendationService();
         let recommendation = recipeRecommendationService.getRecommendation(options);
-        this.assistant.tell(recommendation);
+
+        return recommendation;
     }
 };
 
