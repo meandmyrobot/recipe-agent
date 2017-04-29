@@ -2,7 +2,7 @@
 
 let express = require('express');
 let bodyParser = require('body-parser');
-let Assistant = require('actions-on-google').ApiAiAssistant;
+const Assistant = require('actions-on-google').ApiAiAssistant;
 
 let app = express();
 app.use(bodyParser.json());
@@ -14,20 +14,22 @@ app.get('/', (req, res) => {
 });
 
 app.post('/api', (req, res) => {
-        let assistant = new Assistant({request: req, response: res});
-        let intent = assistant.getIntent();
-        let agentResponse = 'huh?';
+        const assistant = new Assistant({request: req, response: res});
+        assistant.tell('Hello World');
+        
+        // const intent = assistant.getIntent();
+        // let agentResponse = 'huh?';
 
-        switch (intent) {
-            case RECIPE_RECOMMENDATION_INTENT:
-                agentResponse = 'Chocolate';
-            break;
+        // switch (intent) {
+        //     case RECIPE_RECOMMENDATION_INTENT:
+        //         agentResponse = 'Chocolate';
+        //     break;
 
-            default:
-                agentResponse = 'Sorry, I\'ve no idea what you\'re talking about';
-        }
+        //     default:
+        //         agentResponse = 'Sorry, I\'ve no idea what you\'re talking about';
+        // }
 
-        assistant.tell(agentResponse);
+        // assistant.tell(agentResponse);
 });
 
 app.listen(port, () => {
