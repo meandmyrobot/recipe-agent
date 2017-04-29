@@ -6,4 +6,4 @@ const RecipeRecommendationService = class {
     }
 };
 
-modules.export = RecipeRecommendationService;
+module.exports = RecipeRecommendationService;

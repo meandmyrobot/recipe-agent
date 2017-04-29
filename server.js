@@ -1,11 +1,11 @@
 'use strict';
 
 let express = require('express');
-let RecipeAgent = require('./recipe_agent/recipe-agent');
-let app = express();
 let bodyParser = require('body-parser');
-app.use(bodyParser.json());
+let RecipeAgent = require('./recipe_agent/recipe-agent.js');
 
+let app = express();
+app.use(bodyParser.json());
 const devPort = 5000;
 let port = process.env.PORT || devPort;
 
