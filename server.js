@@ -14,12 +14,12 @@ app.get('/', (req, res) => {
 });
 
 app.post('/api', (req, res) => {
-        const assistant = new Assistant({request: req, response: res}); 
+        const assistant = new Assistant({request: req, response: res});
         const intent = assistant.getIntent();
         let agentResponse = 'huh?';
 
         switch (intent) {
-            case RECIPE_RECOMMENDATION_INTENT:
+            case 'recipe.recommendation':
                 agentResponse = 'Chocolate';
             break;
 
