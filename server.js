@@ -15,10 +15,9 @@ app.get('/', (req, res) => {
 });
 
 app.post('/api', (req, res) => {
-        const assistant = new Assistant({request: req, response: res});
-        const recipeAgent = new RecipeAgent(assistant);
-        agentResponse = recipeAgent.getResponseFromIntent();
-        assistant.tell(agentResponse);
+  const assistant = new Assistant({request: req, response: res});
+  const recipeAgent = new RecipeAgent(assistant);
+  recipeAgent.returnResponseFromIntent();
 });
 
 app.listen(port, () => {

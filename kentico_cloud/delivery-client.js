@@ -12,11 +12,11 @@ const DeliveryClient = class extends KenticoCloud {
     }
 
     getItem (codename, options) {
-        return this.getJsonContent('items/' + encodeURIComponent(codename), options);
+        return this.getJsonContent('item/' + encodeURIComponent(codename), options);
     }
 
     getItems (options) {
-        return this.getJsonContent('items', options);
+        return this.getJsonContent('items/', options);
     }
 
     getType (codename, options) {

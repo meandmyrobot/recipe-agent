@@ -37,19 +37,24 @@ const KenticoCloud = class {
         return headers;
     }
 
-    getJsonContent (relativeUrl, options) {
-        let url = this.getBaseUrl() + this.projectId + '/' + relativeUrl;
-        const headers = this.getHeaders();
-
+    getUrlParameters (options) {
         if (options) {
-            let parameters = Reflect.getOwnPropertyNames(options).map((name) => encodeURIComponent(name) + '=' + encodeURIComponent(options[name]));
+            let parameters = Object.getOwnPropertyNames(options).map((name) => encodeURIComponent(name) + '=' + encodeURIComponent(options[name]));
             if (parameters.length > 0) {
-                url = url + '?' + parameters.join('&');
+                return '?' + parameters.join('&');
             }
         }
 
+        return '';
+    }
+
+    getJsonContent (relativeUrl, options) {
+        const headers = this.getHeaders();
         const context = {headers};
+
+        let url = this.getBaseUrl() + this.projectId + '/' + relativeUrl + this.getUrlParameters(options);
         console.log(url);
+
         return fetch(url, context).then(this.checkStatus).
         then((response) => response.json());
     }
