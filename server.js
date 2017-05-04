@@ -9,7 +9,7 @@ const RecipeAgent = require('./recipe_agent/recipe-agent');
 // Configure our app and the port depending on the environment
 let app = express();
 app.use(bodyParser.json());
-const devPort = 5000;
+let devPort = 5000;
 let port = process.env.PORT || devPort;
 
 // Provide a response for browser hitting the app. TODO: - output recipe landing page
