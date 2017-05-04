@@ -1,7 +1,14 @@
-let params = require('./params');
+let params = undefined;
+let projectId = undefined;
+let apiKey = undefined;
 
-// Load params from environment
-let projectId = process.env.KENTICO_CLOUD_PROJECT_ID || params.projectId;
-let apiKey = process.env.KENTICO_CLOUD_API_KEY || params.apiKey;
+if (process === undefined) {
+    params = require('./params');
+    projectId = params.projectId;
+    apiKey = params.apiKey;
+} else {
+    projectId = process.env.KENTICO_CLOUD_PROJECT_ID;
+    apiKey = process.env.KENTICO_CLOUD_API_KEY;
+}
 
 module.exports = {apiKey, projectId};
